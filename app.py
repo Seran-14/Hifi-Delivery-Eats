@@ -83,8 +83,8 @@ mail = Mail(app)
 oauth = OAuth(app)
 google = oauth.register(
     name='google',
-   GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
-   GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
+   GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID"),
+   GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET"),
     server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
     client_kwargs={
         'scope': 'openid email profile',
@@ -4284,4 +4284,4 @@ def initialize_delivery_system(app):
 
 if __name__ == '__main__':
     initialize_delivery_system(app)
-    app.run(debug=True)
+    app.run(debug=False)
