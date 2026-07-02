@@ -30,7 +30,7 @@ import tempfile
 from datetime import datetime, timedelta
 from textblob import TextBlob
 import re
-import streamlit as st
+# import streamlit as st
 import plotly.graph_objs as go
 import plotly.io as pio
 from functools import wraps
@@ -1349,7 +1349,7 @@ def generate_feedback_analysis(db_path):
     sentiment_pie_chart_path = pio.to_html(sentiment_pie_chart, full_html=False)
 
     # Display the pie chart using Streamlit
-    st.plotly_chart(sentiment_pie_chart)
+    # st.plotly_chart(sentiment_pie_chart)
 
     return {
         'average_rating': average_rating,
