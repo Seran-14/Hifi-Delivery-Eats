@@ -4,9 +4,9 @@
 
 📌 Overview
 
-HiFi Delivery Eats is a full-stack food ordering and delivery management platform built to handle the complete order lifecycle — from menu browsing and checkout to live delivery tracking and post-order feedback. The system includes three dedicated experiences: a customer ordering flow, an admin control center for restaurant operations, and a delivery agent dashboard for real-time order fulfillment.
+HiFi Delivery Eats is a full-stack food ordering and delivery management platform built to handle the complete order lifecycle — from menu browsing and checkout to live delivery tracking and post-order feedback.
 
-Developed using HTML, CSS, JavaScript for the frontend, and Python (Flask) with SQLite for the backend, HiFi Delivery Eats layers in machine learning-driven analytics — sentiment analysis on customer feedback and anomaly detection on order patterns — to turn raw order data into actionable business insight.
+Developed using HTML, CSS, JavaScript for the frontend, and Python (Flask) with SQLite for the backend, HiFi Delivery Eats layers in machine learning-driven analytics — sentiment analysis on customer feedback.
 
 🌐 Live Website
 
@@ -19,19 +19,7 @@ Developed using HTML, CSS, JavaScript for the frontend, and Python (Flask) with 
 - Admin Login: Role-gated access to the full restaurant management console
 - Delivery Agent Login: Dedicated dashboard for assigned delivery staff
 
-✅ Customer Ordering Experience – Browse menu by category (Main Course, Appetizers, Desserts, Beverages) with dietary filters, add to cart, and complete checkout seamlessly.
-
-✅ Order Tracking & History – Customers can view live order status, cancel orders, and revisit past orders.
-
-✅ Feedback & Sentiment Analysis – Post-delivery feedback is analyzed using TextBlob NLP and visualized as sentiment distribution charts.
-
-✅ Admin Order Management – Searchable, filterable live order table with status control, agent assignment/reassignment, and order reporting.
-
-✅ Delivery Agent Dashboard – Live assigned-order feed, one-click status updates, route view, and issue reporting.
-
----
-
-🔧 Technologies Used
+🔧 Technologies Used:
 
 - Frontend: HTML, CSS, JavaScript
 - Backend: Python (Flask)
@@ -39,10 +27,7 @@ Developed using HTML, CSS, JavaScript for the frontend, and Python (Flask) with 
 - Authentication: Authlib (Google & Facebook OAuth)
 - Machine Learning: scikit-learn (K-Means clustering), TextBlob (sentiment analysis)
 - Data & Reporting: Pandas, Matplotlib, Seaborn, Plotly
-- Task Scheduling: APScheduler (background job automation)
 - Deployment: Gunicorn, Render
-
----
 
 🖼️ Screenshots of the Project
 
