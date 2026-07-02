@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dahsboard{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+{% block content %}
+ 
+            <div class="header">
+                <div class="hamburger" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <input type="text" class="search-bar" placeholder="Search...">
+                <div class="user-info">
+                    <h3>Hi, Vishal</h3>
+                    <img class="avatar" src="https://www.w3schools.com/w3images/avatar2.png" alt="User Avatar" width="40">
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="dashboard-header">
+                    <h1>Admin Dashboard</h1>
+                </div>
+
+                <div class="ipo-stats-container">
+                    <div class="ipo-stats">
+                        <div class="ipo-box gain">
+                            <h3>Gains For November</h3>
+                            <p>50%</p>
+                        </div>
+                        <div class="ipo-box loss">
+                            <h3>Losses for November</h3>
+                            <p>30%</p>
+                        </div>
+                        <div class="ipo-box total">
+                            <h3>Total in November</h3>
+                            <p>80%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-links">
+                    <h2>Records</h2>
+                    <ul>
+                        <li><i class="fas fa-chart-bar"></i><a href="#">Customer Management</a></li>
+                        <li><i class="fas fa-clipboard-list"></i><a href="#">Customer Data</a></li>
+                        <li><i class="fas fa-calendar-day"></i><a href="https://topsellingitemsgit-5s7m9ai4y33migxf7xskvh.streamlit.app/">Product Performance</a></li>
+                        <li><i class="fas fa-comments"></i><a href="#">Sentiment Analysis Reports</a></li>
+                    </ul>
+                </div>
+
+                <div class="quick-links">
+                    <h2>Important Links</h2>
+                    <p>Find direct links to view sales data, insights, revenue generation, and customer records</p>
+                    <ul>
+                        <li><i class="fas fa-chart-bar"></i><a href="#">Monthly Sales Report</a></li>
+                        <li><i class="fas fa-clipboard-list"></i><a href="#">Revenue Generated</a></li>
+                        <li><i class="fas fa-calendar-day"></i><a href="#">Monthly Sales Report</a></li>
+                        <li><i class="fas fa-comments"></i><a href="{{ url_for('delivery_metrics') }}">Delivery Metrics</a></li>
+                    </ul>
+                </div>
+
+                <div class="ipo-stats-container">
+                    <div class="main-board-ipo">
+                        <div class="chart">
+                            <canvas id="donutChart"></canvas>
+                            <h3>Popular Items</h3>
+                        </div>
+                        <div class="chart">
+                            <canvas id="stockPriceChart"></canvas>
+                            <h3>Sales Report</h3>
+                        </div>
+                        <div class="chart">
+                            <canvas id="ipoPerformanceChart"></canvas>
+                            <h3>Delivery Metrics</h3>
+                        </div>
+                        <div class="chart">
+                            <canvas id="volumeChart"></canvas>
+                            <h3>Sentiment Analysis</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% block extra_js %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+    <script>
+
+            
+           // Donut Chart
+const donutCtx = document.getElementById('donutChart').getContext('2d');
+const donutChart = new Chart(donutCtx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Successful', 'Failed', 'Pending'],
+        datasets: [{
+            data: [70, 20, 10], // Replace with real data
+            backgroundColor: ['#28a745', '#dc3545', '#ffc107'],
+            borderColor: ['#28a745', '#dc3545', '#ffc107'],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            tooltip: {
+                enabled: true
+            }
+        }
+    }
+});
+
+//(Line Chart Example)
+const stockPriceCtx = document.getElementById('stockPriceChart').getContext('2d');
+const stockPriceChart = new Chart(stockPriceCtx, {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        datasets: [{
+            label: 'Item Price',
+            data: [150, 200, 180, 210, 250], // Replace with real data
+            borderColor: '#007bff',
+            borderWidth: 2,
+            fill: false
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            tooltip: {
+                enabled: true
+            }
+        }
+    }
+});
+
+//  (Bar Chart Example)
+const ipoPerformanceCtx = document.getElementById('ipoPerformanceChart').getContext('2d');
+const ipoPerformanceChart = new Chart(ipoPerformanceCtx, {
+    type: 'bar',
+    data: {
+        labels: ['IPO1', 'IPO2', 'IPO3', 'IPO4'],
+        datasets: [{
+            label: 'Performance',
+            data: [90, 65, 75, 85], // Replace with real data
+            backgroundColor: '#ffc107',
+            borderColor: '#ffc107',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            tooltip: {
+                enabled: true
+            }
+        }
+    }
+});
+{% endblock %}

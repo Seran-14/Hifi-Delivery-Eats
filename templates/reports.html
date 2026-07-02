@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Interactive Report Generator{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/reports.css') }}">
+{% endblock %}
+{% block content %}
+    <div class="header-image">
+        <div class="content">
+            <div id="create-report" class="page active">
+                <div class="content-header">
+                    <h2>Reports</h2>
+                    <!-- <input type="date" class="date-picker" id="date-range-header" /> -->
+                     <div class="date-picker">
+                        <input type="date" id="date-range" placeholder="Select Date" />
+                    </div>
+                </div>
+                <div class="horizontal-line"></div>
+                <div class="navbar">
+                    <button onclick="showPage('create-report')">Create Report</button>
+                    <button onclick="showPage('recent-report')">Recent Reports</button>
+                </div>
+                <div class="horizontal-line"></div>
+                <div class="cards">
+                    <div class="card">
+                        <img src="/static/images/bargraph.png" alt="Bar Graph">
+                        <p>Bar Graph</p>
+                        <button onclick="generateReport('Bar Graph')">Generate</button>
+                    </div>
+                    <div class="card">
+                        <img src="/static/images/histogram.png" alt="Histogram">
+                        <p>Histogram</p>
+                        <button onclick="generateReport('Histogram')">Generate</button>
+                    </div>
+                    <div class="card">
+                        <img src="/static/images/piechart.png" alt="Pie Chart">
+                        <p>Pie Chart</p>
+                        <button onclick="generateReport('Pie Chart')">Generate</button>
+                    </div>
+                    <div class="card">
+                        <img src="/static/images/linegraph.png" alt="Line Graph">
+                        <p>Line Graph</p>
+                        <button onclick="generateReport('Line Graph')">Generate</button>
+                    </div>
+                    <div class="card">
+                        <img src="/static/images/bubble graph.png" alt="Bubble Graph">
+                        <p>Bubble Graph</p>
+                        <button onclick="generateReport('Bubble Graph')">Generate</button>
+                    </div>
+                    <div class="card">
+                        <img src="/static/images/scattergraph.png" alt="Scatter Graph">
+                        <p>Scatter Graph</p>
+                        <button onclick="generateReport('Scatter Graph')">Generate</button>
+                    </div>
+                </div>
+            </div>
+            <div id="recent-report" class="page1">
+                <h2>Recent Reports</h2>
+                <div class="recent-reports1" id="recent-reports-list"></div>
+            </div> 
+        </div>
+    </div>
+{% endblock %}
+  {% block extra_js %}
+    <script src="{{ url_for('static', filename='js/reports.js') }}"></script>
+  {% endblock %}
